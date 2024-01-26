@@ -1,0 +1,169 @@
+body {
+    background-image: url("../images/background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#grid {
+    width: 60rem;
+    height: 38rem;
+    border-radius: 1rem;
+    background-color: white;
+    display: grid;
+    grid-template-columns: 15% auto;
+    grid-template-rows: 24% 60% auto;
+    box-shadow: 10px 10px rgba(173, 216, 230, 0.37);
+}
+
+#imgbanner {
+    padding: 1rem;
+    border-bottom: 1px solid gray;
+}
+
+#leftfooter {
+    text-align: center;
+    border-top: 1px solid gray;
+    padding: 1rem;
+}
+
+#leftfooter a {
+    text-decoration: none;
+    color: blue;
+}
+
+#leftheader {
+    border-bottom: 1px solid gray;
+}
+
+#leftheader img {
+    transition: 500ms;
+}
+
+#leftheader img:hover {
+    filter: invert(1);
+    transition: 500ms;
+}
+
+footer {
+    border-top: 1px solid gray;
+    color: dimgrey;
+}
+
+#leftmenu {
+    border-right: 1px solid gray;
+}
+
+#leftmenu div {
+    margin-top: 4rem;
+    text-align: center;
+}
+
+#leftmenu a {
+    background-color: lightgray;
+    padding: 1rem;
+    box-shadow: 10px 10px lightblue;
+    border: 1px solid black;
+}
+
+#leftmenu a:hover {
+    box-shadow: 10px 10px rgb(236, 107, 236);
+}
+
+#gridlogin {
+    border-radius: 1rem;
+    background-color: white;
+    padding: 1rem;
+}
+
+#gridlogin fieldset {
+    font-size: 2rem;
+    /*border-radius: 1rem;*/
+    box-shadow: 10px 10px lightblue;
+}
+
+#gridlogin fieldset:hover {
+    box-shadow: 10px 10px rgb(236, 107, 236);
+}
+
+#gridlogin legend {
+    font-size: 1rem;
+}
+
+.loginformline {
+    height: 2rem;
+    width: 35rem;
+    box-shadow: 10px 10px lightblue;
+    background-color: white;
+    border: 2px solid black;
+}
+
+.loginformline:hover {
+    box-shadow: 10px 10px rgb(236, 107, 236);
+}
+
+#loginsubmitbutton {
+    height: 3rem;
+    width: 10rem;
+    font-size: 1rem;
+    box-shadow: 10px 10px lightblue;
+}
+
+#loginsubmitbutton:hover {
+    box-shadow: 8px 8px rgb(236, 107, 236);
+}
+
+#registretlink {
+    text-align: center;
+}
+
+#bannerlink {
+    transition: 2s;
+}
+
+#bannerlink:hover {
+    transition: 4s;
+    scale: -100%;
+}
+
+#gridregister {
+    border-radius: 1rem;
+    background-color: white;
+    padding: 1rem;
+    padding-bottom: 0.2rem;
+}
+
+#perfilgrid {
+    display: grid;
+    grid-template-columns: 30% auto;
+    grid-template-rows: 30% auto;
+    box-shadow: 10px 10px rgba(173, 216, 230, 0.37);
+    margin: 1rem;
+}
+
+#perfilgrid div {
+    border: 2px solid red;
+}
+
+.linkprofile {
+    background-color: white;
+    padding: 0.5rem;
+    box-shadow: 10px 10px lightblue;
+    border: 1px solid black;
+    text-decoration: none;
+    color: black;
+    margin-right: 2rem;
+    font-size: 140%;
+}
+
+.linkprofile:hover {
+    box-shadow: 10px 10px rgb(236, 107, 236);
+}
+
+@media screen and (widht < 450px) {
+    p {
+        background-color: purple;
+    }
+}

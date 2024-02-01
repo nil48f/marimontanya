@@ -141,10 +141,17 @@ footer {
     grid-template-rows: 30% auto;
     box-shadow: 10px 10px rgba(173, 216, 230, 0.37);
     margin: 1rem;
+    background-color: white;
+    padding: 1rem;
+    padding-bottom: 4rem;
 }
 
 #perfilgrid div {
-    border: 2px solid red;
+}
+
+#regioimage {
+    height: 60px;
+    width: 40px;
 }
 
 .linkprofile {
@@ -159,6 +166,45 @@ footer {
 }
 
 .linkprofile:hover {
+    box-shadow: 10px 10px rgb(236, 107, 236);
+}
+
+#divpublicaciones {
+    display: flex;
+    justify-content: center;
+    overflow: scroll;
+    overflow-x: hidden;
+}
+
+.publicaciones {
+    display: flex;
+    background-color: white;
+    border: 1px solid gray;
+    box-shadow: 1rem lightblue;
+    height: 300px;
+    width: 300px;
+    border-radius: 1rem;
+    padding-bottom: 2rem;
+    overflow: hidden;
+}
+
+footer a {
+    background-color: white;
+    padding: 0.5rem;
+    box-shadow: 10px 10px lightblue;
+    border: 1px solid black;
+    text-decoration: none;
+    color: black;
+    margin-right: 2rem;
+    font-size: 140%;
+    float: right;
+}
+
+footer p {
+    float: left;
+}
+
+footer a:hover {
     box-shadow: 10px 10px rgb(236, 107, 236);
 }
 

@@ -10,14 +10,14 @@
     <div id="gridlogin">
         <div><a href="index.html"><img id="bannerlink" src="images/banner.png" alt="banner de la pagina"></a></div>
         <div>
-            <form action="" method="post">
+            <form action="session_authentication.php" method="post">
                 <fieldset>
                     <legend><h1>Accés</h1></legend>
                     <label>Correu electronic:</label><br>
-                    <input type="email" class="loginformline">
+                    <input name="usuari" type="email" class="loginformline">
                     <br><br>
                     <label>Clau d'accés:</label><br>
-                    <input type="password" class="loginformline">
+                    <input name="contrasenya" type="password" class="loginformline">
                     <br><br>
                     <input type="submit" value="Accedeix" id="loginsubmitbutton">
                     <br><br>

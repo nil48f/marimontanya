@@ -20,8 +20,8 @@
         </div>
         <div>
             <h1><?php echo $_SESSION['usuari_nom'];?></h1>
-            <p>Email:---</p>
-            <p>Tel: ---</p>
+            <p>Email: <?php echo $_SESSION['usuari_mail'];?></p>
+            <p>Tel: <?php echo $_SESSION['usuari_tlf'];?></p>
             <p>Naixement: ---</p>
             <p>Comarca: ---</p><img id="regioimage" src="images/regio.png">
         </div>

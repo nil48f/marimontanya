@@ -3,7 +3,7 @@
 
 session_start();
 
-if(!isset($_SESSION['usuari_nom'])){
+if(!isset($_SESSION['usuari_mail'])){
     header("location:login.html");
 }
 ?>

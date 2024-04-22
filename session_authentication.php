@@ -5,6 +5,8 @@
 //Dades d'usuari en un array per l'exemple. Normalment s'obtenen directament d'una Base de Dades.
 $usuari["nomusuari"]="admin@gmail.com"; 
 $usuari["contrasenya"]="1234";
+$usuari["nom"]="ADMIN";
+$usuari["telefon"]="699542312";
 
 if(isset($_POST['usuari'], $_POST['contrasenya'])){ //Comprovem que les dades rebudes per POST existeixen 
 
@@ -15,7 +17,9 @@ if(isset($_POST['usuari'], $_POST['contrasenya'])){ //Comprovem que les dades re
         session_start();
 
         // Creem la variable de sessió del nom d'usuari. L'ideal si utilitzem Base de Dades seria guardar la id d'usuari també. Podem guardar més dades de l'usuari com el nom, la id o altres variables interessants que poden necessitar durant el que duri la sessió creant tantes variables de SESSIÓ necessitem.
-        $_SESSION['usuari_nom']=$_POST['usuari'];  
+        $_SESSION['usuari_mail']=$_POST['usuari'];
+        $_SESSION['usuari_nom']=$usuari["nom"];
+        $_SESSION['usuari_tlf']=$usuari["telefon"];
         
         //Redirigim a l'usuari a la pàgina "login.php" per accedir informació que només pot veure ell.
         header("location:perfil.php");

@@ -11,7 +11,7 @@ body {
 }
 
 #grid {
-    background-color: white;
+    background-color: rgb(255, 255, 255);
     display: grid;
     grid-template-columns: 15% auto;
     grid-template-rows: 20% 70% 10%;

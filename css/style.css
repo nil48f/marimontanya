@@ -11,32 +11,45 @@ body {
 }
 
 #grid {
-    background-color: rgb(255, 255, 255);
     display: grid;
     grid-template-columns: 15% auto;
     grid-template-rows: 20% 70% 10%;
+    background-image: url("../images/background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+#grid > div, section, header, footer {
+    /*
+    border-left: 2px solid black;
+    border-bottom: 2px solid black;
+    */
+    border: 2px solid black;
+    margin: 2px;
+    padding: 10px;
+    background-color: white;
 }
 
 #imgbanner {
     padding: 1rem;
-    border-bottom: 1px solid gray;
 }
 
 #leftfooter {
     text-align: center;
-    border-top: 1px solid gray;
-    padding: 1rem;
+    padding-bottom: 3rem;
 }
 
 #leftfooter a {
     text-decoration: none;
     color: blue;
+    padding: 0;
+    margin: 0;
 }
-
+/*
 #leftheader {
-    border-bottom: 1px solid gray;
+    
 }
-
+*/
 #leftheader img {
     transition: 500ms;
 }
@@ -47,13 +60,19 @@ body {
 }
 
 footer {
-    border-top: 1px solid gray;
     color: dimgrey;
+    padding-bottom: 3rem;
 }
 
-#leftmenu {
-    border-right: 1px solid gray;
+footer p {
+    padding: 0;
+    margin: 0;
 }
+/*
+#leftmenu {
+    
+}
+*/
 
 #leftmenu div {
     margin-top: 4rem;
@@ -134,17 +153,32 @@ footer {
     padding-bottom: 0.2rem;
 }
 
+#gridregister fieldset {
+    /*font-size: 0rem;
+    border-radius: 1rem;*/
+    box-shadow: 10px 10px lightblue;
+}
+
+#gridregister fieldset:hover {
+    box-shadow: 10px 10px rgb(236, 107, 236);
+}
+
 #perfilgrid {
     display: grid;
     grid-template-columns: 30% auto;
     grid-template-rows: 15% auto;
-    background-color: white;
-    padding: 1rem;
+    padding: 0.1rem;
 }
 
 #perfilgrid > div {
-    border-left: 1px solid gray;
+    /*
+    border-left: 2px solid black;
+    border-bottom: 2px solid black;
+    */
+    border: 2px solid black;
+    margin: 2px;
     padding: 10px;
+    background-color: white;
 }
 
 #regioimage {
@@ -159,7 +193,7 @@ footer {
     border: 1px solid black;
     text-decoration: none;
     color: black;
-    margin-right: 2rem;
+    margin-left: 2rem;
     font-size: 140%;
 }
 
@@ -205,6 +239,28 @@ footer p {
 
 footer a:hover {
     box-shadow: 10px 10px rgb(236, 107, 236);
+}
+
+#imagenPerfil {
+    padding-bottom: 1rem;
+    border-bottom: 1px solid gray;
+}
+
+#imagenPerfil img {
+    border-radius: 1000px;
+    width: 150px;
+    height: 150px;
+}
+
+#informacionPerfil {
+    text-align: center;
+    font-size: 120%;
+}
+
+#bodyPerfil {
+    background-image: url("../images/background.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 @media screen and (widht < 450px) {

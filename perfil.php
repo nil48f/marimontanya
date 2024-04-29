@@ -24,8 +24,8 @@
             </div>
             <p>Email: <?php echo $_SESSION['usuari_mail'];?></p>
             <p>Tel: <?php echo $_SESSION['usuari_tlf'];?></p>
-            <p>Naixement: ---</p>
-            <p>Comarca: ---</p><img id="regioimage" src="images/regio.png">
+            <p>Naixement: <?php echo $_SESSION['usuari_naixement'];?></p>
+            <p>Comarca: <?php echo $_SESSION['usuari_comarca'];?></p>
         </div>
         <div>
             <h2>Publicacions Recents</h2>

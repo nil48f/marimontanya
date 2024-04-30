@@ -68,7 +68,7 @@ if(isset($_POST['usuari'], $_POST['contrasenya'])){
             break;
         } else{
             //En cas de no validar-se l'usuari, el redirigim a la pàgina "exemple_session.php" perquè pugui fer login novament.
-            echo "lol";
+            echo "<script>alert(\"Correu o Clau d'acces incorrecte\")</script>";
         }
     }
     header("location:perfil.php");

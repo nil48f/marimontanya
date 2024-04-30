@@ -65,9 +65,11 @@
         //Insertar Datos
         if ($fallo == 0) {
             $coleccion->insertOne(['nombre' => $_POST['nombre'], 'contrasenya' => $_POST['clau'], 'email' => $_POST['email'], 'tlf' => '---', 'naixement' => '---', 'comarca' => '---', 'foto' => $_POST['foto']]);
-            echo "<h2 style=\"color: white; background-color: green\">Conta Creada</h2>";
+            //echo "<h2 style=\"color: white; background-color: green\">Conta Creada</h2>";
+            echo "<script>alert(\"Conta Creada Correctament\")</script>";
         } else {
-            echo "<h2 style=\"color: white; background-color: red\">AQUEST EMAIL JA ESTA REGISTRAT</h2>";
+            //echo "<h2 style=\"color: white; background-color: red\">AQUEST EMAIL JA ESTA REGISTRAT</h2>";
+            echo "<script>alert(\"AQUEST EMAIL JA ESTA REGISTRAT\")</script>";
         }
     }
 ?>

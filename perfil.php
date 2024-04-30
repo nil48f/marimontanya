@@ -15,12 +15,15 @@
             <h1><?php echo $_SESSION['usuari_nom'];?></h1>
         </div>
         <div>
-            <a class="linkprofile" href="index.html">Home</a>
+            <a class="linkprofile" href="index.php">Home</a>
             <a class="linkprofile" href="logout.php">Tanca Sesio</a>
         </div>
         <div id="informacionPerfil">
             <div id="imagenPerfil">
-                <img src="images/profile_photo.jpg">
+                <?php
+                    $coso = $_SESSION['usuari_foto'];
+                    echo "<img src=\"images/perfil/" . $coso . "\"alt=\"Siusplau Afegeixi foto de perfil\">";
+                ?>
             </div>
             <p>Email: <?php echo $_SESSION['usuari_mail'];?></p>
             <p>Tel: <?php echo $_SESSION['usuari_tlf'];?></p>

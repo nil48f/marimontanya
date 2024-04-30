@@ -8,8 +8,11 @@
 </head>
 <!--
     docker exec -it MongoDB_M09 mongosh
-    db.usuarios.insertOne({nombre:'Nil Balaguer',email:'nilbalaguer@gmail.com',tlf:'69976234',naixement:'08/07/2005',comarca:'Barcelona'})
+    db.usuarios.insertOne({nombre:'Nil Balaguer',contrasenya:'1234',email:'nilbalaguer@gmail.com',tlf:'69976234',naixement:'08/07/2005',comarca:'Barcelona'})
 -->
+<?php
+    require("protection.php");
+?>
 <body id="grid">
     <div id="leftheader">
         <img src="images/logo.webp" width="50%">
@@ -19,7 +22,7 @@
     </header>
     <section id="leftmenu">
         <div>
-            <a href="index.html"><img src="images/home.png"></a>
+            <a href="index.php"><img src="images/home.png"></a>
         </div>
         <div>
             <a href="login.html"><img src="images/login.png"></a>

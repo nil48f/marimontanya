@@ -62,6 +62,7 @@ if(isset($_POST['usuari'], $_POST['contrasenya'])){
             $_SESSION['usuari_tlf']=$cosa['tlf'];
             $_SESSION['usuari_naixement']=$cosa['naixement'];
             $_SESSION['usuari_comarca']=$cosa['comarca'];
+            $_SESSION['usuari_foto']=$cosa['foto'];
             
             //Redirigim a l'usuari a la pàgina "login.php" per accedir informació que només pot veure ell.
             break;

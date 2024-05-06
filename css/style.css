@@ -204,21 +204,22 @@ footer p {
 #divpublicaciones {
     display: flex;
     justify-content: center;
-    overflow: scroll;
-    overflow-x: hidden;
+    overflow-y: hidden;
+    overflow-x: scroll;
     padding: 20px;
+    padding-left: 300px;
 }
 
 .publicaciones {
-    display: flex;
-    background-color: white;
-    border: 1px solid gray;
-    box-shadow: 1rem lightblue;
-    height: 300px;
-    width: 300px;
-    border-radius: 1rem;
-    padding-bottom: 2rem;
-    overflow: hidden;
+    border-radius: 20px;
+    border: 2px solid black;
+    margin-left: 30px;
+}
+
+.fotopublicacion {
+    border-bottom: 1px solid black;
+    height: 250px;
+    width: 250px;
 }
 
 footer a {

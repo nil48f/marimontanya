@@ -6,6 +6,7 @@ body {
     background-image: url("../images/background.jpg");
     background-size: cover;
     background-repeat: no-repeat;
+    background-attachment: fixed;
     display: flex;
     justify-content: center;
 }
@@ -32,6 +33,12 @@ body {
 
 #imgbanner {
     padding: 1rem;
+}
+
+#cajadebusqueda {
+    display: flex;
+    align-items: end;
+    justify-content:space-between;
 }
 
 #leftfooter {
@@ -206,6 +213,7 @@ footer p {
     justify-content: center;
     overflow-y: hidden;
     overflow-x: scroll;
+    /*flex-direction: row-reverse;*/
     padding: 20px;
     padding-left: 300px;
 }

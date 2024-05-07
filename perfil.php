@@ -100,6 +100,7 @@
                         echo "<div class=\"textoPublicacion\">";
                         echo $cosa['desc'];
                         echo "<form method=\"post\"><input name=\"pub_delid\" value=\"".$cosa['id']."\" type=\"hidden\"><input type=\"submit\" value=\"Borrar\"></form>";
+                        echo "<form method=\"post\" action=\"editpub.php\"><input name=\"pub_editid\" value=\"".$cosa['id']."\" type=\"hidden\"><input type=\"submit\" value=\"Editar\"></form>";
                         echo "</div>
                         </div>";
                     }

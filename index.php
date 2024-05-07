@@ -10,30 +10,23 @@
     docker exec -it MongoDB_M09 mongosh
     db.usuarios.insertOne({nombre:'Nil Balaguer',contrasenya:'1234',email:'nilbalaguer@gmail.com',tlf:'69976234',naixement:'08/07/2005',comarca:'Barcelona'})
 -->
-<?php
-    require("protection.php");
-    require 'vendor/autoload.php';//Incluye composer
-
-    if (isset($_POST['pub_likeid'])) {
-        $cliente = new MongoDB\Client("mongodb://localhost:27017");
-
-        //echo $cliente;
-
-        $db = $cliente->DAW1; //Base de datos
-        $coleccion = $db->publicaciones; //Coleccion, tablas
-
-        $coleccion->updateOne(
-            [ 'id' => $_POST['pub_likeid'] ],
-            [ '$inc' => [ 'likes' => 1 ] ]
-        );
-    }
-?>
 <body id="grid">
     <div id="leftheader">
         <img src="images/logo.webp" width="50%">
     </div>
     <header id="imgbanner">
-        <img src="images/banner.png" width="50%">
+        <div id="cajadebusqueda">
+            <img src="images/banner.png" width="50%">
+            <form method="post" action="buscar.php">
+                <input type="textarea" name="textobusqueda" placeholder="Buscar">
+                <select name="filtro">
+                    <option value="nombre">Nom</option>
+                    <option value="email">Email</option>
+                </select>
+                <label for="submitbusqueda"><img src="images/lupa.png" alt="lupa" width="30px" height="30px"></label>
+                <input id="submitbusqueda" type="submit" hidden value="Enviar">
+            </form>
+        </div>
     </header>
     <section id="leftmenu">
         <div>
@@ -46,6 +39,24 @@
             <a href="perfil.php"><img src="images/perfil.png"></a>
         </div>
     </section>
+    <?php
+        require("protection.php");
+        require 'vendor/autoload.php';//Incluye composer
+
+        if (isset($_POST['pub_likeid'])) {
+            $cliente = new MongoDB\Client("mongodb://localhost:27017");
+
+            //echo $cliente;
+
+            $db = $cliente->DAW1; //Base de datos
+            $coleccion = $db->publicaciones; //Coleccion, tablas
+
+            $coleccion->updateOne(
+                [ 'id' => $_POST['pub_likeid'] ],
+                [ '$inc' => [ 'likes' => 1 ] ]
+            );
+        }
+    ?>
     <section id="divpublicaciones">
         <?php
             //Base de dades
@@ -61,7 +72,7 @@
         
             function ImprimirTexto($cosa) {
                 echo "<div class=\"textoPublicacion\">";
-                echo $cosa['desc']."<br>".$cosa['likes'];
+                echo "<p style=\"font-size: 80%;\">".$cosa['desc']." ".$cosa['likes']." Likes</p>";
                 echo "<form method=\"post\"><input name=\"pub_likeid\" value=\"".$cosa['id']."\" type=\"hidden\"><input type=\"submit\" value=\"Like ".$cosa['autor']."\"></form>";
                 echo "</div>
                 </div>";

@@ -10,7 +10,7 @@
     <div id="gridregister">
         <div><a href="index.php"><img id="bannerlink" src="images/banner.png" alt="banner de la pagina"></a></div>
         <div>
-            <form method="post">
+            <form method="post" enctype="multipart/form-data">
                 <fieldset>
                     <legend><h1>Registra't</h1></legend>
                     <label>Nom Complet:</label><br>
@@ -23,7 +23,8 @@
                     <input name="email" type="email" class="loginformline" required>
                     <br><br>
                     <label>Clau d'accés:</label><br>
-                    <input name="clau" type="password" class="loginformline" required>
+                    <input name="clau" type="password" class="loginformlinepassword" required>
+                    <input name="clau2" type="password" class="loginformlinepassword" required placeholder="Confirma La Clau">
                     <br><br>
                     <input type="submit" value="Registra't" id="loginsubmitbutton">
                     <br><br>
@@ -35,7 +36,7 @@
 </body>
 </html>
 <?php
-    if (isset($_POST['nombre'])) {
+    if (isset($_POST['nombre']) && ($_POST['clau'] == $_POST['clau2'])) {
         //Base de dades
         require 'vendor/autoload.php';//Incluye composer
 
@@ -64,12 +65,27 @@
 
         //Insertar Datos
         if ($fallo == 0) {
-            $coleccion->insertOne(['nombre' => $_POST['nombre'], 'contrasenya' => $_POST['clau'], 'email' => $_POST['email'], 'tlf' => '---', 'naixement' => '---', 'comarca' => '---', 'foto' => $_POST['foto']]);
+            //Subir Imagen al servidor
+            $directorio_destino = 'images/perfil/';
+
+            $nombre_archivo = basename($_FILES['foto']['name']);
+
+            $ruta_destino = $directorio_destino . $nombre_archivo;
+
+            move_uploaded_file($_FILES['foto']['tmp_name'], $ruta_destino);
+
+            $coleccion->insertOne(['nombre' => $_POST['nombre'], 'contrasenya' => $_POST['clau'], 'email' => $_POST['email'], 'tlf' => '---', 'naixement' => '---', 'comarca' => '---', 'foto' => $_FILES['foto']['name']]);
             //echo "<h2 style=\"color: white; background-color: green\">Conta Creada</h2>";
             echo "<script>alert(\"Conta Creada Correctament\")</script>";
         } else {
             //echo "<h2 style=\"color: white; background-color: red\">AQUEST EMAIL JA ESTA REGISTRAT</h2>";
             echo "<script>alert(\"AQUEST EMAIL JA ESTA REGISTRAT\")</script>";
         }
+    } elseif (isset($_POST['clau']) && $_POST['clau'] != $_POST['clau2']) {
+        echo "
+            <script>
+                alert(\"Les Claus No Coincideixen\");
+            </script>
+        ";
     }
 ?>

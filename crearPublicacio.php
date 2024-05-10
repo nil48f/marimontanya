@@ -10,14 +10,14 @@
     <div id="gridregister">
         <div><a href="index.php"><img id="bannerlink" src="images/banner.png" alt="banner de la pagina"></a></div>
         <div>
-            <form method="post">
+            <form method="post" enctype="multipart/form-data">
                 <fieldset>
                     <legend><h1>Crea Una Publicacio</h1></legend>
                     <label>Imatge</label><br>
                     <input name="foto" type="file" class="loginformline" required>
                     <br><br>
                     <label>Peu De Foto</label><br>
-                    <input name="desc" type="textarea" class="loginformline" required>
+                    <input name="desc" type="textarea" class="loginformline" maxlength="32" required>
                     <br><br>
                     <input type="submit" value="Crear" id="loginsubmitbutton">
                     <br><br>
@@ -29,7 +29,17 @@
 </html>
 <?php
     require("protection.php");
-    if (isset($_POST['foto'])) {
+    if (isset($_FILES['foto'])) {
+        //Subir Imagen al servidor
+        $directorio_destino = 'images/publicaciones/';
+
+        $nombre_archivo = basename($_FILES['foto']['name']);
+
+        $ruta_destino = $directorio_destino . $nombre_archivo;
+
+        move_uploaded_file($_FILES['foto']['tmp_name'], $ruta_destino);
+
+
         //Base de dades
         require 'vendor/autoload.php';//Incluye composer
 
@@ -50,6 +60,7 @@
         $coso = ("".($contador + 1)."");
 
         //Insertar Datos
-        $coleccion->insertOne(['id' => ($coso), 'autor' => $_SESSION['usuari_mail'], 'foto' => $_POST['foto'], 'desc' => $_POST['desc'], 'likes' => 0]);
+        $coleccion->insertOne(['id' => ($coso), 'autor' => $_SESSION['usuari_mail'], 'foto' => $_FILES['foto']['name'], 'desc' => $_POST['desc'], 'likes' => 0]);
+        
     }
 ?>

@@ -20,14 +20,49 @@
             <form method="post" action="buscar.php">
                 <input type="textarea" name="textobusqueda" placeholder="Buscar">
                 <select name="filtro">
-                    <option value="nombre">Nom</option>
-                    <option value="email">Email</option>
+                    <option value="nombre">Usuari Nom</option>
+                    <option value="email">Usuari Email</option>
+                    <option value="pub">Publicacion</option>
                 </select>
-                <label for="submitbusqueda"><img src="images/lupa.png" alt="lupa" width="30px" height="30px"></label>
+                <label for="submitbusqueda"><img src="images/lupa.png" id="botondebusqueda" alt="Buscar" width="30px" height="30px"></label>
                 <input id="submitbusqueda" type="submit" hidden value="Enviar">
             </form>
         </div>
     </header>
+    <?php
+        //PHP para comprobar las cookies
+        if (!isset($_COOKIE['LaCookie'])) {
+            echo "
+            <dialog id=\"myDialog\">
+                <p>Politica de Cookies</p>
+                <form method=\"post\"><input hidden name=\"aceptando\" value=\"acceptar\"><input type=\"submit\" value=\"Acceptar\"></form>
+                <button id=\"closeDialog\">No Acceptar</button>
+            </dialog>
+
+            <script>
+                //JavaScript para ventana emergente de cookies
+                const dialog = document.getElementById('myDialog');
+                const closeDialogButton = document.getElementById('closeDialog');
+
+                closeDialogButton.addEventListener('click', function() {
+                    dialog.close();
+                });
+
+                window.addEventListener('load', function() {
+                    dialog.showModal();
+                });
+            </script>
+            ";
+
+            if (isset($_POST['aceptando'])) {
+                setcookie("LaCookie", "valor cookie", time() + (100));
+                
+                
+                header('location:index.php');
+            }
+        }
+        
+    ?>
     <section id="leftmenu">
         <div>
             <a href="index.php"><img src="images/home.png"></a>

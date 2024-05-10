@@ -125,7 +125,19 @@ footer p {
     border: 2px solid black;
 }
 
+.loginformlinepassword {
+    height: 2rem;
+    width: 17.5rem;
+    box-shadow: 10px 10px lightblue;
+    background-color: white;
+    border: 2px solid black;
+}
+
 .loginformline:hover {
+    box-shadow: 10px 10px rgb(236, 107, 236);
+}
+
+.loginformlinepassword:hover {
     box-shadow: 10px 10px rgb(236, 107, 236);
 }
 
@@ -270,6 +282,25 @@ footer a:hover {
     background-image: url("../images/background.jpg");
     background-size: cover;
     background-repeat: no-repeat;
+}
+
+#botondebusqueda {
+    border: 1px solid black;
+    border-radius: 10px;
+    transition: 1000ms;
+}
+
+#botondebusqueda:hover {
+    border: 1px solid violet;
+    border-radius: 20px;
+    transition: 1000ms;
+}
+
+dialog {
+    width: 300px;
+    padding: 20px;
+    border-radius: 10px;
+    border: none;
 }
 
 @media screen and (widht < 450px) {

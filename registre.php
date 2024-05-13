@@ -71,7 +71,7 @@
             $nombre_archivo = basename($_FILES['foto']['name']);
 
             $ruta_destino = $directorio_destino . $nombre_archivo;
-
+            
             move_uploaded_file($_FILES['foto']['tmp_name'], $ruta_destino);
 
             $coleccion->insertOne(['nombre' => $_POST['nombre'], 'contrasenya' => $_POST['clau'], 'email' => $_POST['email'], 'tlf' => '---', 'naixement' => '---', 'comarca' => '---', 'foto' => $_FILES['foto']['name']]);

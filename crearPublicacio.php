@@ -57,10 +57,10 @@
             $usuarios[$contador] = $doc['id'];
             $contador += 1;
         }
-        $coso = ("".($contador + 1)."");
+        $coso = ("".(mt_rand())."");
 
         //Insertar Datos
-        $coleccion->insertOne(['id' => ($coso), 'autor' => $_SESSION['usuari_mail'], 'foto' => $_FILES['foto']['name'], 'desc' => $_POST['desc'], 'likes' => 0]);
+        $coleccion->insertOne(['id' => ($coso), 'autor' => $_SESSION['usuari_mail'], 'foto' => $_FILES['foto']['name'], 'desc' => $_POST['desc'], 'likes' => []]);
         
     }
 ?>

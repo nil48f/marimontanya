@@ -80,16 +80,23 @@
 
         if (isset($_POST['pub_likeid'])) {
             $cliente = new MongoDB\Client("mongodb://localhost:27017");
-
-            //echo $cliente;
-
-            $db = $cliente->DAW1; //Base de datos
-            $coleccion = $db->publicaciones; //Coleccion, tablas
-
-            $coleccion->updateOne(
-                [ 'id' => $_POST['pub_likeid'] ],
-                [ '$inc' => [ 'likes' => 1 ] ]
-            );
+            $db = $cliente->DAW1; // Base de datos
+            $coleccion = $db->publicaciones; // Colección, tablas
+        
+            // Buscar la publicación por ID
+            $publicacion = $coleccion->findOne(['id' => $_POST['pub_likeid']]);
+        
+            if ($publicacion) {
+                $likes = iterator_to_array($publicacion['likes']); // Convertir BSONArray a array
+        
+                if (!in_array($_SESSION['usuari_mail'], $likes)) {
+                    // Agregar el correo electrónico del usuario al array de likes
+                    $coleccion->updateOne(
+                        ['id' => $_POST['pub_likeid']],
+                        ['$push' => ['likes' => $_SESSION['usuari_mail']]]
+                    );
+                }
+            }
         }
     ?>
     <section id="divpublicaciones">
@@ -106,11 +113,19 @@
             }
         
             function ImprimirTexto($cosa) {
+                $likes = iterator_to_array($cosa['likes']);
+                $userHasLiked = in_array($_SESSION['usuari_mail'], $likes);
                 echo "<div class=\"textoPublicacion\">";
-                echo "<p style=\"font-size: 80%;\">".$cosa['desc']." ".$cosa['likes']." Likes</p>";
-                echo "<form method=\"post\"><input name=\"pub_likeid\" value=\"".$cosa['id']."\" type=\"hidden\"><input type=\"submit\" value=\"Like ".$cosa['autor']."\"></form>";
-                echo "</div>
-                </div>";
+                echo "<p style=\"font-size: 80%;\">".$cosa['desc']." ".count($likes)." Likes</p>";
+                if (!$userHasLiked) {
+                    echo "<form method=\"post\">
+                            <input name=\"pub_likeid\" value=\"".$cosa['id']."\" type=\"hidden\">
+                            <input type=\"submit\" value=\"Like ".$cosa['autor']."\">
+                          </form>";
+                } else {
+                    echo "<p style=\"font-size: 70%;\">Ja has donat like a ".$cosa['autor']."</p>";
+                }
+                echo "</div></div>";
             }
 
             $cliente = new MongoDB\Client("mongodb://localhost:27017");

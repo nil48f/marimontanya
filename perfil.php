@@ -29,7 +29,7 @@
                 $contador += 1;
             }
 
-            echo $_POST['pub_delid'];
+            //echo $_POST['pub_delid'];
             //Insertar Datos
             $coleccion->deleteOne(['id' => $_POST['pub_delid']]);
         }
@@ -42,6 +42,7 @@
         <div>
             <a class="linkprofile" href="index.php">Home</a>
             <a class="linkprofile" href="logout.php">Tanca Sesio</a>
+            <a class="linkprofile" href="editperfil.php">Editar Perfil</a>
         </div>
         <div id="informacionPerfil">
             <div id="imagenPerfil">

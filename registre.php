@@ -77,6 +77,7 @@
             $coleccion->insertOne(['nombre' => $_POST['nombre'], 'contrasenya' => $_POST['clau'], 'email' => $_POST['email'], 'tlf' => '---', 'naixement' => '---', 'comarca' => '---', 'foto' => $_FILES['foto']['name']]);
             //echo "<h2 style=\"color: white; background-color: green\">Conta Creada</h2>";
             echo "<script>alert(\"Conta Creada Correctament\")</script>";
+            header("Location:login.html");
         } else {
             //echo "<h2 style=\"color: white; background-color: red\">AQUEST EMAIL JA ESTA REGISTRAT</h2>";
             echo "<script>alert(\"AQUEST EMAIL JA ESTA REGISTRAT\")</script>";

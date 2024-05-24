@@ -303,7 +303,7 @@ dialog {
     border: none;
 }
 
-@media screen and (widht < 450px) {
+@media screen and (width < 450px) {
     p {
         background-color: purple;
     }
